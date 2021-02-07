@@ -539,3 +539,16 @@ body {
 		padding: 0 10px;
 	}
 }
+
+.verify_true{
+	background-image: url("/image/true.gif");
+	background-position: right center;
+	background-size: 40px;
+	background-repeat: no-repeat;
+}
+.verify_false{
+	background-image: url("/image/false.gif");
+	background-position: right center;
+	background-size: 40px;
+	background-repeat: no-repeat;
+}

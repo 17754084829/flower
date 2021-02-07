@@ -16,9 +16,9 @@ public class EmailObserver extends Observer{
     @Override
     public void deal(Msg msg) {
         try {
-            log.info(this.name+":正在处理任务   路由为:"+this.route);
             Mail mail = (Mail) msg.getMsg();
             MailHelper.sendMail(mail);
+            log.info(this.name+":正在处理任务   路由为:"+this.route+"  邮箱接受者地址为:"+mail.getRec_user());
         }catch (Exception e){
             System.err.println(e.getMessage());
         }

@@ -52,7 +52,7 @@ public class PermissionFilter implements Filter {
                writer.println(info);
                writer.flush();
                writer.close();
-               log.info("非法访问");
+               log.info("非法访问: "+path);
                return;
            }
         }
@@ -66,11 +66,11 @@ public class PermissionFilter implements Filter {
             writer.println(info);
             writer.flush();
             writer.close();
-            log.info("授权失败");
+            log.info("授权失败: "+path);
             return;
         }else{
             filterChain.doFilter(servletRequest,servletResponse);
-            log.info("授权通过");
+            log.info("授权通过 :"+path);
         }
 
     }

@@ -13,5 +13,4 @@ public class ResourceController {
     public String get500(){
         return "500.html";
     }
-
 }

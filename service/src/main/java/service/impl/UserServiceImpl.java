@@ -69,7 +69,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public int addUser(User user) throws Exception {
         int num=-1;
-        if(DataVerify.stringIsNotEmpty(userDao.getEmail(user.getEmail()))||DataVerify.stringIsNotEmpty(user.getUser_name()))
+        if(DataVerify.stringIsNotEmpty(userDao.getEmail(user.getEmail()))||DataVerify.stringIsNotEmpty(userDao.getUsername(user.getUser_name())))
         {
             log.error("用户名或邮箱地址重复");
             return num;
