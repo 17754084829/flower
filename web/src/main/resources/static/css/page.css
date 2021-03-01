@@ -1,0 +1,153 @@
+.head{
+    width: 100%;
+    height: 50px;
+    border-bottom: #0e90d2 1px;
+}
+.head-title{
+    width: 60%;
+    float: left;
+}
+.head-title a{
+    font-size: 1.8em;
+}
+.head>input{
+    display: none;
+    clear: both;
+}
+.head-content{
+    width: 40%;
+    height: 50px;
+    float: right;
+}
+.head-content .head-search{
+    width: 80%;
+    height: 50px;
+    text-align: center;
+    float: left;
+    position: relative;
+}
+.head-content .login{
+    width: 20%;
+    height: 50px;
+    text-align: center;
+    float: right;
+}
+.head-content .login a{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    display: inline-block;
+    line-height: 50px;
+}
+.head-content .c{
+    display: none;
+    clear: both;
+}
+
+.wrapper {
+    padding: 0px;
+    position: relative;
+}
+.fadepage{
+    position: absolute;
+    background-color:grey;
+    opacity: 0;
+    z-index: 1000;
+    height: 450px;
+    left: 0px;
+    right: 0px;
+}
+.show{
+    border: 0px;
+}
+.show img{
+    width: 100%;
+    height:450px;
+    margin: 0px;
+}
+
+.control{
+    width: 200px;
+    display: flex;
+    position: absolute;
+    z-index:50;
+    left: 47%;
+    top:400px;
+    flex-wrap: wrap;
+}
+.control span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    border: solid 2px;
+    background-color: gray;
+    margin-left: 10px;
+}
+.list-content{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.list-content .list-item{
+    width:20%;
+    margin-right: 4%;
+    height: 210px;
+}
+
+.list-item .item-img{
+    width: 100%;
+    height: 160px;
+    border: 0px;
+    margin: 0px;
+}
+.item-img  img{
+    width: 100%;
+    height: 160px;
+}
+.list-item .item-foot{
+    width: 100%;
+    height: 50px;
+}
+.item-foot .item-title{
+    width: 100%;
+    height: 20px;
+}
+.item-foot .item-price{
+    float: left;
+}
+.item-foot .item-time{
+    height: 30px;
+    float: right;
+    text-align: center;
+}
+.item-time span{
+    display: inline-block;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+.active{
+    background-color: white !important;
+}
+.item-foot input{
+    display: none;
+    clear: both;
+}
+.item-price  span{
+    color: red;
+    font-size: 1.5em;
+}
+.search-input{
+    position: relative;
+}
+.search-rs{
+    position: absolute;
+    left: 0px;
+    top: 34px;
+    width: 100%;
+    z-index: 2000;
+}
+.appear{
+    display: none;
+}

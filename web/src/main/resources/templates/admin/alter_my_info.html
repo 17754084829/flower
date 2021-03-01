@@ -1,0 +1,121 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>修改信息页面</title>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/alter_info.css"/>
+    <script src="/js/sweetalert.min.js"></script>
+    <script src="/js/auth.js"></script>
+</head>
+<body>
+<!-- Button trigger modal -->
+<button id="bu" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="display: none">
+</button>
+<button id="alter_bu" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#alter" style="display: none"></button>
+<!-- 展示 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabe">我的信息</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="name">用户名</label>
+                        <input type="text" class="form-control" id="name" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">电子邮箱</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email" >
+                    </div>
+                    <div class="form-group">
+                        <label for="email">账户余额</label>
+                        <input type="email" class="form-control" id="account" placeholder="账户余额" >
+                    </div>
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password" >
+                    </div>
+                    <div class="form-group">
+                        <label for="file">当前头像</label>
+                        <div style="width:80px;height: 80px">
+                            <input style="display:none;float: left" type="file" id="file"/>
+                            <img src="/image/login.jpg" class="img-responsive" alt="你的头像" id="show_img"/>
+                            <input style="display: none;clear: both"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="widget_switch_checkbox">开启授权码</label>
+                        <div>
+                        <div id="container" style="float: left">
+                            <input type="checkbox" class="widget_switch_checkbox" id="widget_switch_checkbox">
+                            <label for="widget_switch_checkbox" class="widget_switch_label">
+                                <span class="widget_switch_circle"></span>
+                            </label>
+                        </div>
+                        <div style="float: right">
+                            <!--<input class="form-control" readonly="readonly" placeholder="验证码为:080909"/>-->
+                            <label id="verify_code" style="display: none" >授权码为:909008</label>
+                        </div>
+                            <input style="display: none;clear: both"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">关闭窗口</button>
+                <button  type="button" class="btn btn-primary" style="display:none">下一步</button>
+                <button id="next" type="button" class="btn-primary">下一步</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--修改-->
+
+<div class="modal" id="alter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">修改我的信息</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="alter_name">用户名</label>
+                        <input type="text" class="form-control" id="alter_name" placeholder="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="alter_email">电子邮箱</label>
+                        <input type="email" class="form-control" id="alter_email" placeholder="Email" >
+                    </div>
+                    <div class="form-group">
+                        <label for="alter_password">密码</label>
+                        <input type="password" class="form-control" id="alter_password" placeholder="Password" >
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">上传好看的图片当头像</label>
+                        <div style="width:80px;height: 80px">
+                            <input style="display:none;float: left" type="file" id="exampleInputFile"/>
+                            <img src="/image/login.jpg" class="img-responsive" alt="你的头像" id="img"/>
+                            <input style="display: none;clear: both"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭窗口</button>
+                <button id="submit" type="button" class="btn btn-primary">确定修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="/js/alter_info.js"></script>
+</html>

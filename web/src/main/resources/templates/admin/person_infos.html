@@ -1,0 +1,199 @@
+<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="Bookmark" href="/favicon.ico">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/lib/html5shiv.js"></script>
+    <script type="text/javascript" src="/js/lib/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css"
+          href="/js/static/h-ui/css/H-ui.css" />
+    <link rel="stylesheet" type="text/css"
+          href="/js/static/h-ui.admin/css/H-ui.admin.css" />
+    <link rel="stylesheet" type="text/css"
+          href="/js/lib/Hui-iconfont/1.0.8/iconfont.css" />
+    <link rel="stylesheet" type="text/css"
+          href="/js/static/h-ui.admin/skin/default/skin.css" id="skin" />
+    <link rel="stylesheet" type="text/css"
+          href="/js/static/h-ui.admin/css/style.css" />
+    <link href="/js/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet"
+          type="text/css" />
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <script src="/js/sweetalert.min.js"></script>
+
+    <link href="/js/lib/ueditor/1.4.3/themes/default/css/umeditor.css"
+          type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="/js/lib/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/js/lib/ueditor/1.4.3/third-party/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8"
+            src="/js/lib/ueditor/1.4.3/umeditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8"
+            src="/js/lib/ueditor/1.4.3/umeditor.min.js"></script>
+    <script type="text/javascript" charset="utf-8"
+            src="/js/lib/ueditor/1.4.3/umeditor.js"></script>
+    <script type="text/javascript"
+            src="/js/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css"/>
+    <script type="text/javascript" src="/js/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <script type="text/javascript" src="/js/lib/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/lib/layer/2.4/layer.js"></script>
+    <script type="text/javascript" src="/js/static/h-ui/js/H-ui.min.js"></script>
+    <script type="text/javascript" src="/js/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+    <!--请在下方写此页面业务相关的脚本-->
+    <script type="text/javascript" src="/js/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+    <script type="text/javascript" src="/js/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/js/lib/laypage/1.2/laypage.js"></script>
+    <script src="/js/person.js"></script>
+    <script src="/js/auth.js"></script>
+    <![endif]-->
+    <!--/meta 作为公共模版分离出去-->
+    <title>人员列表</title>
+</head>
+<body>
+<div class="page-container">
+
+    <div class="cl pd-5 bg-1 bk-gray mt-10"> <span class="l"><a  id ="add" class="btn btn-primary radius" onclick="add_goods()" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加会员</a></span></div>
+    <div class="mt-20">
+        <table class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
+            <thead>
+            <tr>
+                <th scope="col" colspan="9">商品管理</th>
+            </tr>
+            <tr class="text-c">
+                <th>会员姓名</th>
+                <th>会员图像</th>
+                <th>会员邮箱</th>
+                <th>会员密码</th>
+                <th>会员账户余额</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody data-json="area3"></tbody>
+        </table>
+    </div>
+</div>
+
+<button id="bu" class="btn radius btn-primary size-L" onClick="modaldemo()" style="display: none">弹出对话框</button>
+<button id="show" class="btn radius btn-primary size-L" onClick="modaldemos()" style="display: none">弹出对话框</button>
+
+
+<div id="modal-demo" class="modal fade model-self" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content radius">
+            <div class="modal-header">
+                <h3 class="modal-title" id="title">添加会员</h3>
+                <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:void();">×</a>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="codeView">
+                    <form action="" method="post" class="form form-horizontal" id="demoform-1">
+                        <legend>会员信息</legend>
+                        <input id="goodsID" style="display: none" value=""/>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-3">会员姓名</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" autocomplete="off" placeholder="会员姓名" id="name">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-3">会员头像：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <div style="width:80px;height: 80px">
+                                    <input style="display:none;float: left" type="file" id="exampleInputFile"/>
+                                    <img src="/image/login.jpg" class="img-responsive" alt="会员头像" id="img"/>
+                                    <input style="display: none;clear: both"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-3">是否可用：</label>
+                            <div class="formControls skin-minimal col-xs-8 col-sm-9">
+                                <div class="radio-box">
+                                    <div id="able-11" class="iradio-blue checked" value="1"><input type="radio" value="Y" id="able-1" name="is_able" checked="" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
+                                    <label for="able-1">可用</label>
+                                </div>
+                                <div class="radio-box">
+                                    <div id="able-00" class="iradio-blue" value="0"><input type="radio" id="able-0" value="N" name="is_able" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
+                                    <label for="able-0">禁用</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-3">会员密码</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" autocomplete="off" placeholder="会员密码" id="password">
+                            </div>
+                        </div>
+
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-3">会员类型：</label>
+                            <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+							<select class="select" size="1" name="demo1" id="type">
+                                <option value="">========选择会员身份类型=========</option>
+                                <option value="1">管理员</option>
+                                <option value="0">普通会员</option>
+							</select>
+							</span> </div>
+                        </div>
+
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-3">会员账户余额</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input id="number" type="text" class="input-text" autocomplete="off" placeholder="会员账户余额">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-3">会员邮箱</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input id="email" type="email" class="input-text" autocomplete="off" placeholder="会员邮箱">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button id="confirm" class="btn btn-primary" onclick="submit();">确定</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="add_type" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabe2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content radius">
+            <div class="modal-header">
+                <h3 class="modal-title">信息</h3>
+                <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:void();">×</a>
+            </div>
+            <div class="modal-body">
+                <img id="show_image" src="" class="img-responsive" alt="图片">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="commit()">确定</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

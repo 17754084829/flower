@@ -125,7 +125,7 @@ var Auth = {
 					content: {
 						element: "input",
 						attributes: {
-							placeholder: "请输入接受邮件的邮箱号",
+							placeholder: "请输入账号绑定的邮箱号",
 							type: "text",
 						},
 					},
@@ -228,7 +228,7 @@ function register_user() {
 	}
 	$.ajax({
 		url:"/user/addUser",
-		data:{"username":user_Name,"password":password,"email":email,"is_able":1,"id":"1","image_url":"/image/login.jpg","role":"1","verify_code":"1","user_name":user_Name},
+		data:{"username":user_Name,"password":password,"email":email,"is_able":1,"id":"1","image_url":"/image/login.jpg","role":"1","verify_code":"1","user_name":user_Name,"account":1000},
 		dataType:"json",
 		type:"post",
 		success:function (data) {
@@ -237,7 +237,6 @@ function register_user() {
 				window.location.href="/login";
 			}else{
 				swal("提示信息",data.msg,"error");
-				window.location.reload();
 			}
 		}
 	});
@@ -369,23 +368,19 @@ function deal_email(value){
 										if(rs.code==200){
 											swal("提示信息",rs.msg,"success",{timer:3000}).then(
 												function () {
-													swal({buttons:{
+													swal(
+														"修改账号 :"+"您当前修改的账号为: "+value,
+														{
+														buttons:{
 															cancel: "取消",
 															confirm: "下一步",
 														}
-														,
-														content: {
-															element: "input",
-															attributes: {
-																placeholder: "请输入需要改变的账号",
-																type: "text",
-															},
-														},}).then(function (data) {
-															if(!strisNotEmpty(data)){
+														}).then(function (data) {
+															if(!strisNotEmpty(value)){
 																swal("提示信息",'账号不能为空',"error",{timer:3000});
 																return;
 															}
-															alert_name=data;
+															alert_name=value;
 														swal({
 															buttons:{
 																cancel: "取消",

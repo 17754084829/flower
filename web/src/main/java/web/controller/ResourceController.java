@@ -13,4 +13,12 @@ public class ResourceController {
     public String get500(){
         return "500.html";
     }
+    @RequestMapping("/302.html")
+    public String get302(){
+        return "302.html";
+    }
+    @RequestMapping("/test")
+    public String getTest(){
+        return "Test.html";
+    }
 }

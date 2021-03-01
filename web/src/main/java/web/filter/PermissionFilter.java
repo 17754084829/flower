@@ -43,29 +43,13 @@ public class PermissionFilter implements Filter {
                filterChain.doFilter(servletRequest,servletResponse);
                return;
            }else {
-               response.setContentType("application/json;charset=utf-8");
-               HashMap<String,Object> hashMap=new HashMap<>();
-               hashMap.put("code",-1);
-               hashMap.put("msg","非法访问");
-               String info=JSON.toJSONString(hashMap);
-               PrintWriter writer=response.getWriter();
-               writer.println(info);
-               writer.flush();
-               writer.close();
+               request.getRequestDispatcher("/resource/302.html").forward(request,response);
                log.info("非法访问: "+path);
                return;
            }
         }
         if(!FilterPermission.hasPermission(path,FilterPermission.getPermissionList(code))){
-            response.setContentType("application/json;charset=utf-8");
-            HashMap<String,Object> hashMap=new HashMap<>();
-            hashMap.put("code",-1);
-            hashMap.put("msg","权限异常,请重新登录合适的账户");
-            String info=JSON.toJSONString(hashMap);
-            PrintWriter writer=response.getWriter();
-            writer.println(info);
-            writer.flush();
-            writer.close();
+            request.getRequestDispatcher("/resource/302.html").forward(request,response);
             log.info("授权失败: "+path);
             return;
         }else{

@@ -1,0 +1,38 @@
+.widget_switch_checkbox {
+    display: none;
+}
+
+.widget_switch_label {
+    margin-top: 5px;
+    background-color: grey;
+    display: inline-block;
+    position: relative;
+    height: 20px;
+    width: 50px;
+    border-radius: 1000px;
+    box-shadow: 0 0 2px black;
+}
+.widget_switch_checkbox:checked~.widget_switch_label .widget_switch_circle {
+    left: 30px;
+}
+
+.widget_switch_circle {
+    position: absolute;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    background-color: #eee;
+    left: 0;
+    /*过渡效果，可考虑不加*/
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.widget_switch_checkbox:checked~.widget_switch_label {
+    background: deepskyblue;
+}

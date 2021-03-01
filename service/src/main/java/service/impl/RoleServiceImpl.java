@@ -18,4 +18,9 @@ public class RoleServiceImpl implements RoleService {
     public int addRole(Role role) throws Exception {
         return roleDao.addRole(role);
     }
+
+    @Override
+    public int update(Role role) {
+        return roleDao.update(role);
+    }
 }

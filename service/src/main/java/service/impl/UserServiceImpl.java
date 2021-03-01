@@ -79,14 +79,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int updateUser(User user) throws Exception {
-        int num=-1;
-        if(DataVerify.stringIsNotEmpty(userDao.getEmail(user.getEmail()))&&user.getEmail()!= userDao.getUserInfoById(user.getId()).getEmail())
-            return num;
         return userDao.updateUser(user);
     }
 
     @Override
     public int userForbiddenByID(String id) throws Exception {
         return userDao.userForbiddenByID(id);
+    }
+
+    @Override
+    public String getVerify_codeById(String id) throws Exception {
+        return userDao.getVerify_codeById(id);
     }
 }

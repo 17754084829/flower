@@ -14,7 +14,6 @@
         <module>dao</module>
         <module>service</module>
         <module>web</module>
-        <module>dao</module>
         <module>common</module>
     </modules>
     <dependencies>

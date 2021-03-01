@@ -17,4 +17,5 @@ public interface UserService {
     int addUser(User user) throws Exception;
     int updateUser(User user) throws Exception;
     int userForbiddenByID(String id) throws Exception;
+    String getVerify_codeById(String id) throws Exception;
 }

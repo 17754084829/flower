@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的购物车</title>
+</head>
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="/css/goods_car.css" />
+
+<body>
+<div class="shopping-car-container">
+	<div class="car-headers-menu">
+		<div class="row">
+			<div class="col-md-1 car-menu">
+				<label><input type="checkbox" id="check-goods-all" /><span id="checkAll">全选</span></label>
+			</div>
+			<div class="col-md-3 car-menu">商品信息</div>
+			<div class="col-md-3 car-menu">商品类型</div>
+			<div class="col-md-1 car-menu">单价</div>
+			<div class="col-md-1 car-menu">数量</div>
+			<div class="col-md-1 car-menu">金额</div>
+			<div class="col-md-2 car-menu">操作</div>
+		</div>
+	</div>
+	<div class="goods-content">
+		<!--goods display-->
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-body bottom-menu-include">
+			<div class="col-md-1 check-all-bottom bottom-menu">
+				<label>
+						<input type="checkbox" id="checked-all-bottom" />
+						<span id="checkAllBottom">全选</span>
+					</label>
+			</div>
+			<div class="col-md-1 bottom-menu">
+				<span id="deleteMulty">
+						删除
+				</span>
+			</div>
+			<div class="col-md-6 bottom-menu">
+
+			</div>
+			<div class="col-md-2 bottom-menu">
+				<span>已选商品 <span id="selectGoodsCount">0</span> 件</span>
+			</div>
+			<div class="col-md-1 bottom-menu">
+				<span>合计：<span id="selectGoodsMoney">0.00</span></span>
+			</div>
+			<div onclick="sub();" class="col-md-1 bottom-menu submitData submitDis">
+				结算
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<button id="bu" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="display: none">
+	Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">管理邮寄地址信息</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-inline">
+				<div class="form-group" style="width: 100%">
+					<label for="addr" style="float: left">默认邮寄地址</label>
+					<select style="float: right"  class="form-control" id="addr">
+						<option value="">浙江省-杭州市-余杭区</option>
+						<option value="add"><------添加新地址--------></option>
+					</select>
+					<input style="display: none; clear:both"/>
+				</div>
+			</form>
+				<div class="form-group" id="add_addr_laber">
+					<label for="addr" style="float: left">添加新地址</label>
+				</div>
+				<div class="form-group" id="add_addr">
+					<ul class="nav nav-tabs" id="myTab">
+						<li class="active"><a href="#bulletin1" id="pro">省</a></li>
+						<li><a href="#rule1" id="city">市</a></li>
+						<li><a href="#forum1" id="dis">区</a></li>
+						<li><a href="#security1" id="all">详细地址</a></li>
+					</ul>
+					<div id="mytab-content2" class="tab-content">
+						<div class="tab-pane fade in active" id="bulletin1">
+							<ul class="list-unstyled">
+								<li class="pro">安徽省</li>
+								<li class="pro">浙江省</li>
+								<li class="pro">江苏省</li>
+								<li class="pro">江西省</li>
+							</ul>
+						</div>
+						<div class="tab-pane fade" id="rule1">
+							<ul class="list-unstyled city-select">
+								<li class="cit">安庆市</li>
+								<li class="cit">杭州市</li>
+								<li class="cit">南京市</li>
+								<li class="cit">南昌市</li>
+							</ul>
+						</div>
+						<div class="tab-pane fade" id="forum1">
+							<ul class="list-unstyled">
+								<li class="dis">宜秀区</li>
+								<li class="dis">余杭区</li>
+								<li class="dis">江宁区</li>
+								<li class="dis">东湖区</li>
+							</ul>
+						</div>
+						<div class="tab-pane fade" id="security1">
+							<textarea class="form-control" placeholder="输入详细地址" rows="" cols="" name="" id="desc"></textarea>
+							<button class="btn btn-primary" onclick="add_addr()" id="add_addr_bu">添加新地址</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" onclick="pay()">下单</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<div style="text-align:center;margin:-50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+	<p>花艺馆</p>
+</div>
+</body>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/goods_car.js"></script>
+<script type="text/javascript" src="/js/lib/layer/2.4/layer.js"></script>
+</html>

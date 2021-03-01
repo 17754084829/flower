@@ -1,0 +1,9 @@
+.addAnim{			position:absolute;
+    -webkit-transform:scale(0,0) rotate(-180deg);
+    -o-transform:scale(0,0) rotate(-180deg);
+    -moz-transform:scale(0,0) rotate(-180deg);
+    transform:scale(0,0) rotate(-180deg);
+    opacity:.2;		}
+.hidden_img{
+    display: none;
+}

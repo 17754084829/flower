@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script type="text/javascript" src="/js/lib/html5shiv.js"></script>
+    <script type="text/javascript" src="/js/lib/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css"
+          href="/js/static/h-ui/css/H-ui.css" />
+    <link rel="stylesheet" type="text/css"
+          href="/js/static/h-ui.admin/css/H-ui.admin.css" />
+    <link rel="stylesheet" type="text/css"
+          href="/js/lib/Hui-iconfont/1.0.8/iconfont.css" />
+    <link rel="stylesheet" type="text/css"
+          href="/js/static/h-ui.admin/skin/default/skin.css" id="skin" />
+    <link rel="stylesheet" type="text/css"
+          href="/js/static/h-ui.admin/css/style.css" />
+    <link rel="stylesheet" type="text/css"
+          href="/css/all.css" />
+    <link href="/js/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet"
+          type="text/css" />
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <script src="/js/sweetalert.min.js"></script>
+
+    <link href="/js/lib/ueditor/1.4.3/themes/default/css/umeditor.css"
+          type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="/js/lib/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/js/lib/ueditor/1.4.3/third-party/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8"
+            src="/js/lib/ueditor/1.4.3/umeditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8"
+            src="/js/lib/ueditor/1.4.3/umeditor.min.js"></script>
+    <script type="text/javascript" charset="utf-8"
+            src="/js/lib/ueditor/1.4.3/umeditor.js"></script>
+    <script type="text/javascript"
+            src="/js/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/js/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <script type="text/javascript" src="/js/lib/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/lib/layer/2.4/layer.js"></script>
+    <script type="text/javascript" src="/js/static/h-ui/js/H-ui.min.js"></script>
+    <script type="text/javascript" src="/js/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+    <!--请在下方写此页面业务相关的脚本-->
+    <script type="text/javascript" src="/js/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+    <script type="text/javascript" src="/js/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/js/lib/laypage/1.2/laypage.js"></script>
+    <script src="/js/goods_info.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/all.js"></script>
+    <meta charset="UTF-8">
+    <title>商品详细页</title>
+</head>
+<body>
+        <div class="container">
+            <div class="container">
+                <div class="col-sm-8" id="items">
+                    <input id="goods_id"  th:value="${goods_id}" style="display: none"/>
+                    <img  id="item" onclick="addcar()" th:attr="src=${image_url}" class="col-sm-6" style="height: 300px;" alt="test">
+                </div>
+                <div class="col-sm-4">
+                    <div style="height: 250px;position: relative" th:text="${goods_desc}">
+                    </div>
+                    <div  style="width:100%;position: absolute;top:250px">
+                        <div style="width: 60%;float: left">
+                            <span style="font-size: 1.8em;color: black">售价</span><span style="font-size: 1.5em;color: red;margin-left: 10px" th:text="${goods_price}">88</span>￥
+                        </div>
+                        <div style="width: 17%;float:left;margin-left: 10px">
+                            <button  class="btn btn-primary" type="button" onclick="gotoCar()">
+                                <i id="cart"  class="icon Hui-iconfont"></i>购物车 <span id="car_num" class="badge">0</span>
+                                <input style="display: none;clear: both"/>
+                            </button>
+                        </div>
+                        <input style="clear: both;display: none"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-header">评论列表</div>
+                <div class="panel-body">
+                    <ul class="commentList" id="content_body">
+                        <p class="container" style="text-align: center">~~~~空空如也~~~~~</p>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <button style="visibility: hidden" class="btn btn-primary col-sm-4">添加您的评论吧</button>
+                <div onclick="add_content()" class="col-sm-4" style="text-align: center"><button class="btn btn-primary">添加您的评论吧</button></div>
+                <button style="visibility: hidden" class="btn btn-primary col-sm-4" onclick="add_content()">添加您的评论吧</button>
+            </div>
+            <div class="container">
+
+                <nav aria-label="...">
+                    <ul class="pager">
+                        <li id="pre"  onclick="pre()" class="previous"><a href="javascript:void(0)"><span aria-hidden="true">&larr;</span> 上一页</a></li>
+                        <input style="display: none" id="preValue"/>
+                        <input style="display: none" id="nextValue"/>
+                        <li id="next" onclick="next()" class="next"><a href="javascript:void(0)">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+<!--
+
+
+ <ul class="commentList">
+                        <li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="${user_image_url}"></i></a>
+                            <div class="comment-main">
+                                <header class="comment-header">
+                                    <div class="comment-meta"><a class="comment-author" href="#">辉哥</a> 评论于
+                                        <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20">2014-8-31 15:20</time>
+                                    </div>
+                                </header>
+                                <div class="comment-body">
+                                    <p><a href="#">@某人</a> 你是猴子派来的救兵吗？</p>
+                                    <button class="btn btn-primary" style="float: right">回复</button>
+                                    <button class="btn btn-danger" style="float: right">删除</button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="item cl comment-flip"> <a href="#"><i class="avatar size-L radius"><img alt="" src="//static.h-ui.net/h-ui/images/ucnter/avatar-default.jpg"></i></a>
+                            <div class="comment-main">
+                                <header class="comment-header">
+                                    <div class="comment-meta"><a class="comment-author" href="#">辉哥</a> 评论于
+                                        <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20">2014-8-31 15:20</time>
+                                    </div>
+                                </header>
+                                <div class="comment-body">
+                                    <p><a href="#">@某人</a> 你是猴子派来的救兵来恶心我的吗？</p>
+                                    <button class="btn btn-primary" style="float: right">回复</button>
+                                    <button class="btn btn-danger" style="float: right">删除</button>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+
+-->
+</body>
+</html>
